@@ -10,8 +10,9 @@ int main()
     char opt;  
     int n1, n2;   
     float res;  
-    printf (" Choose an operator(+, -, *, /) to perform the operation in C Calculator \n ");  
+    printf (" Choose an operator(+, -, *, /) to perform the operation :\n ");  
     scanf ("%c", &opt); 
+    
     if (opt == '/' )  
     {  
         printf (" You have selected: Division");  
