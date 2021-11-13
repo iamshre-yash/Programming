@@ -4,11 +4,16 @@ const score0 = document.querySelector('#score--0');
 const score1 = document.querySelector('#score--1');
 const current0 = document.querySelector('#current--0');
 const current1 = document.querySelector('#current--1');
+const player1 = document.querySelector('.player--0');
+const player2 = document.querySelector('.player--1');
 const dice = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
-let currentScore =0;
+
+const score = [0, 0];
+let currentScore = 0;
+let activePlayer = 0;
 
 
 //Conditions
@@ -17,22 +22,27 @@ score1.textContent = 0;
 dice.classList.add('hidden');
 
 //Rolling Dice Functionality
-btnRoll.addEventListener('click',function(){
+btnRoll.addEventListener('click', function() {
   //Rendom Dice Roll
-  const diceNum = Math.trunc(Math.random()*6)+1;//1 to 6
+  const diceNum = Math.trunc(Math.random() * 6) + 1; //1 to 6
   //Display Dice 
-  dice.classList.remove('hidden');//remove hidden class
-  dice.src = `dice-${diceNum}.png`;//Change IMG to random
+  dice.classList.remove('hidden'); //remove hidden class
+  dice.src = `dice-${diceNum}.png`; //Change IMG to random
   //Check for Rolled 1
   if (diceNum != 1) { //Add dice to currentScore
     currentScore += diceNum;
-    current0.textContent = currentScore;
-    
-    
-  } else {
-    
+    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+  } else { //Switch to next Player
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    currentScore = 0;
+    currentScore += diceNum;
+    document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    player1.classList.toggle('player--active');
+    player2.classList.toggle('player--active');
+
   }
-  
-  
-  
+
+
+
 });
