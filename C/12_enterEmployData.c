@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-struct employ {
+typedef struct employ {
     char name[10];
     int id;
     char gender[1];
-};
+}e;
 int main()
 {
     int a;
     printf("Enter Total Number of Employ : ");
     scanf("%d",&a);
-    struct employ emp[a];
+    e emp[a];
     for (int i=0;i<a;i++)
     {
         printf("Enter employ %d id:  ", i+1);
