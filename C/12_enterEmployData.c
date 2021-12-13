@@ -28,4 +28,3 @@ int main()
     }
  //  strcpy
     return  0;
-}
