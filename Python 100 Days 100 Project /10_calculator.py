@@ -1,4 +1,4 @@
-from replit import clear
+import os
 logo = """
  _____________________
 |  _________________  |
@@ -55,7 +55,7 @@ def calculator():
       num1 = answer
     else:
       should_continue = False
-      clear()
+      os.system('clear')
       calculator()
 
 calculator()

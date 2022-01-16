@@ -1,4 +1,4 @@
-from replit import clear
+import os
 logo = '''
                          ___________
                          \         /
@@ -35,4 +35,4 @@ while(next):
     #maximum = max(allbids.values())
     #print(f"The winner is {maxName} with a bid of {maximum}")
   elif choice == 'yes':
-    clear()
+     os.system('clear')
