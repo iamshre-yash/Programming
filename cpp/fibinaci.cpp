@@ -1,19 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int main (void)
+void fib(int n)
 {
-	int first = 0, second = 1, next, num;
+	int t1 = 0, t2 = 1, next;
 
-	cout << "Enter the num to print:";
-	cin >> num;
-	cout << first << " "<< second << " ";
-	for (int i = 0;i<num;i++)
+	for (int i = 0; i <= n; i++)
 	{
-		next = first + second;
-		cout << next << "  ";
-		first = second;
-		second = next;
+		cout << t1 << endl;
+		next = t1 + t2;
+		t1 = t2;
+		t2 = next;
 	}
 }
 
+int main(void)
+{
+	int num;
+
+	cout << "Enter the num to print:";
+	cin >> num;
+
+	fib(num);
+}
