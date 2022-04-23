@@ -17,7 +17,7 @@ fact *= i;              // factorial = factorial*i;
 }
 printf("Factorial of the given number %d is %d", number, fact);
 }
-printf("Using function: %d",number);
+printf("Using function: %d", factorial(number));
 return 0;
 }
 //using Function
