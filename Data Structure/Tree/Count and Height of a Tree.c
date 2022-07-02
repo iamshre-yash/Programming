@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Queue.h"
-
+#include "Stack.h"
 struct Node *root = NULL;
 void Treecreate()
 {
     struct Node *p, *t;
     int x;
     struct Queue q;
-    create(&q, 2);
+    create(&q, 100);
 
     printf("Eneter root value ");
     scanf("%d", &x);
@@ -24,8 +24,7 @@ void Treecreate()
         scanf("%d", &x);
         if (x != -1)
         {
-            t = (struct Node *)malloc(sizeof(struct
-                                             Node));
+            t = (struct Node *)malloc(sizeof(struct Node));
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->lchild = t;
@@ -35,8 +34,7 @@ void Treecreate()
         scanf("%d", &x);
         if (x != -1)
         {
-            t = (struct Node *)malloc(sizeof(struct
-                                             Node));
+            t = (struct Node *)malloc(sizeof(struct Node));
             t->data = x;
             t->lchild = t->rchild = NULL;
             p->rchild = t;
@@ -44,39 +42,29 @@ void Treecreate()
         }
     }
 }
-void Preorder(struct Node *p)
+int count(struct Node *root)
 {
-    if (p)
-    {
-        printf("%d ", p->data);
-        Preorder(p->lchild);
-        Preorder(p->rchild);
-    }
+    if (root)
+        return count(root->lchild) + count(root->rchild) + 1;
+    return 0;
 }
-void Inorder(struct Node *p)
+int height(struct Node *root)
 {
-    if (p)
-    {
-        Inorder(p->lchild);
-        printf("%d ", p->data);
-        Inorder(p->rchild);
-    }
-}
-void Postorder(struct Node *p)
-{
-    if (p)
-    {
-        Postorder(p->lchild);
-        Postorder(p->rchild);
-        printf("%d ", p->data);
-    }
+    int x = 0, y = 0;
+    if (root == 0)
+        return 0;
+    x = height(root->lchild);
+    y = height(root->rchild);
+    if (x > y)
+        return x + 1;
+    else
+        return y + 1;
 }
 int main()
 {
     Treecreate();
-    Preorder(root);
-    printf("\nPost Order ");
-    Postorder(root);
 
+    printf("% d", count(root));
+    printf("% d", height(root));
     return 0;
 }
