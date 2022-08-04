@@ -21,7 +21,7 @@ void insert(struct Node *t,int key,int index){
     }else{
         for (int i=0;i<index-1;i++) {
             if(t->next==NULL){
-                printf("out of range.");
+                printf("\nindex out of range\n");
                 return;
             }
             t=t->next;
@@ -40,8 +40,8 @@ void Delete(struct Node *t,int index){
             free(p);
         }else{
             for(int i=0;i<index-1;i++){
-                if(p->next==NUll){
-                    printf("out of range");
+                if(p->next==NULL){
+                    printf("\nindex out of range\n");
                     return;
                 }
                 t=p;
@@ -71,7 +71,7 @@ int main()
     
     Display(first);
     printf("\n");
-    Delete(first,2);
+    Delete(first,6);
     Display(first);
     printf("\n");
     return 0;
