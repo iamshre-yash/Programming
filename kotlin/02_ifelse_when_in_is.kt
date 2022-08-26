@@ -55,7 +55,7 @@ fun main(){
         else -> println("$x is none of the above")
     }
 
-    **/
+    /**
     var x : Any = 13.37
     when(x) {
         is Int -> println("$x is an Int")
